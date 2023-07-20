@@ -1,5 +1,5 @@
 {
-    "name": "ringcentral/psr7",
+    "name": "lulhum/ringcentral_psr7",
     "type": "library",
     "description": "PSR-7 message implementation",
     "keywords": ["message", "stream", "http", "uri"],
@@ -11,6 +11,9 @@
             "homepage": "https://github.com/mtdowling"
         }
     ],
+    "replace": {
+        "ringcentral/psr7": "^1.9"
+    },
     "require": {
         "php": ">=5.3",
         "psr/http-message": "~1.0"
