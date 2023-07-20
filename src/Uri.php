@@ -268,11 +268,17 @@ class Uri implements UriInterface
         return $uri;
     }
 
+    /**
+    * @return string
+    */
     public function getScheme()
     {
         return $this->scheme;
     }
 
+    /**
+    * @return string
+    */
     public function getAuthority()
     {
         if (empty($this->host)) {
@@ -291,36 +297,57 @@ class Uri implements UriInterface
         return $authority;
     }
 
+    /**
+    * @return string
+    */
     public function getUserInfo()
     {
         return $this->userInfo;
     }
 
+    /**
+    * @return string
+    */
     public function getHost()
     {
         return $this->host;
     }
 
+    /**
+    * @return ?int
+    */
     public function getPort()
     {
         return $this->port;
     }
 
+    /**
+    * @return string
+    */
     public function getPath()
     {
         return $this->path == null ? '' : $this->path;
     }
 
+    /**
+    * @return string
+    */
     public function getQuery()
     {
         return $this->query;
     }
 
+    /**
+    * @return string
+    */
     public function getFragment()
     {
         return $this->fragment;
     }
 
+    /**
+    * @return static
+    */
     public function withScheme($scheme)
     {
         $scheme = $this->filterScheme($scheme);
@@ -335,6 +362,9 @@ class Uri implements UriInterface
         return $new;
     }
 
+    /**
+    * @return static
+    */
     public function withUserInfo($user, $password = null)
     {
         $info = $user;
@@ -351,6 +381,9 @@ class Uri implements UriInterface
         return $new;
     }
 
+    /**
+    * @return static
+    */
     public function withHost($host)
     {
         if ($this->host === $host) {
@@ -362,6 +395,9 @@ class Uri implements UriInterface
         return $new;
     }
 
+    /**
+    * @return static
+    */
     public function withPort($port)
     {
         $port = $this->filterPort($this->scheme, $this->host, $port);
@@ -375,6 +411,9 @@ class Uri implements UriInterface
         return $new;
     }
 
+    /**
+    * @return static
+    */
     public function withPath($path)
     {
         if (!is_string($path)) {
@@ -394,6 +433,9 @@ class Uri implements UriInterface
         return $new;
     }
 
+    /**
+    * @return static
+    */
     public function withQuery($query)
     {
         if (!is_string($query) && !method_exists($query, '__toString')) {
@@ -418,6 +460,9 @@ class Uri implements UriInterface
         return $new;
     }
 
+    /**
+    * @return static
+    */
     public function withFragment($fragment)
     {
         if (substr($fragment, 0, 1) === '#') {
